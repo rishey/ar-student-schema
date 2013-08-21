@@ -6,8 +6,9 @@ class Student < ActiveRecord::Base
 	validates :email, uniqueness: true
 	#validates :phone
 	validates_format_of :email, :with => /\w+@\w+.\w{2}/
-	# validates_numericality_of :phone, :only_integer => true
-	#validates_format_of :phone, :with => /^\d{10,}/
+	#validates_numericality_of :phone, :only_integer => true
+	validates_format_of :phone, :with => /.*\d{3}.*\d{3}.*\d{4}.*/
+	#/.*\d{3}.*\d{3}.*\d{4}.*/
 
 	def name
 		first_name + " " + last_name
