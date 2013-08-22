@@ -1,9 +1,9 @@
-require_relative '../app/models/teachers'
+require_relative '../app/models/teacher'
 
 module TeachersImporter
   def self.import(filename=File.dirname(__FILE__) + "/../db/data/teachers.csv")
     field_names = nil
-    Student.transaction do
+    Teacher.transaction do
       File.open(filename).each do |line|
         data = line.chomp.split(',')
         if field_names.nil?

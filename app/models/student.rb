@@ -10,6 +10,9 @@ class Student < ActiveRecord::Base
 	validates_format_of :phone, :with => /.*\d{3}.*\d{3}.*\d{4}.*/
 	#/.*\d{3}.*\d{3}.*\d{4}.*/
 
+	belongs_to :teacher
+
+
 	def name
 		first_name + " " + last_name
 	end
